@@ -27,6 +27,7 @@ body {
   line-height: 24px;
   color: $text;
   font-weight: 400;
+  overflow-x: hidden;
 }
 .wrapper {
   display: flex;
@@ -95,4 +96,16 @@ body {
 }
 .page-content {
   background-color: #f4f6f5;
+}
+.angel-right {
+  position: relative;
+  padding-left: 15px;
+  &::before {
+    font-family: "icomoon" !important;
+    content: "\f105";
+    position: absolute;
+    color: $green;
+    left: 0;
+    font-size: 14px;
+  }
 }
