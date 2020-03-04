@@ -26,6 +26,7 @@ let gulp = require('gulp'),
     'node_modules/magnific-popup/dist/magnific-popup.css',
     'node_modules/rateyo/src/jquery.rateyo.css',
     'node_modules/ion-rangeSlider/css/ion.rangeSlider.css',
+    'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.css'
 
   ])
   .pipe(concat('libs.min.css'))
@@ -40,6 +41,7 @@ let gulp = require('gulp'),
      'node_modules/mixitup/dist/mixitup.js',
      'node_modules/rateyo/src/jquery.rateyo.js',
      'node_modules/ion-rangeSlider/js/ion.rangeSlider.js',
+     'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js',
 
    ])
    .pipe(concat('libs.min.js'))
