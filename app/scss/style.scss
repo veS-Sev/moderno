@@ -488,6 +488,11 @@
   padding: 110px 0;
   background-color: $gray;
 }
+.products__wrapper,
+.product-slider__wrapper {
+  max-width: 1920px;
+  margin: 0 auto;
+}
 .products__inner-btn {
   margin-bottom: 60px;
   text-align: center;
@@ -512,7 +517,12 @@
 .products__inner-box {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
+  margin-left: -30px;
+}
+.products .product__item {
+  flex-basis: calc(25% - 30px);
+  margin-left: 30px;
 }
 .product__item {
   max-width: 442px;
@@ -520,6 +530,7 @@
   @include f500;
   box-shadow: 0px 1px 2px 0px rgba(205, 214, 222, 0.75);
   margin-bottom: 30px;
+
   &-img {
     min-height: 250px;
     background-repeat: no-repeat;
@@ -641,7 +652,7 @@
   padding: 110px 0;
   background-color: $bg;
 }
-.advantages__item-title {
+.advantages__title.title {
   color: #fff;
 }
 .advantages__inner {
@@ -1082,6 +1093,25 @@
     margin-top: 28px;
   }
 }
+.aside__product-item {
+  .product__item.list {
+    .product__item-img {
+      width: 210px;
+      height: 120px;
+     float: none;
+    }
+    .product__item-title{
+      margin-top: 15px;
+      font-size: 16px;
+      color:$bg; 
+      max-width: 170px;
+    }
+    .product__item-price{
+      font-size: 16px;
+      color:$bg; 
+    }
+  }
+}
 .top-sellers__link {
   color: #fff;
   text-align: center;
@@ -1132,9 +1162,10 @@ button.icon-sort-amount-desc {
 
 .product-page__content {
   .product__item {
-    max-width: 270px;
+    flex-basis: calc(33.3333% - 30px);
     background-color: #fff;
     transition: all 0.5s;
+    margin-left: 30px;
   }
   .product__item-img {
     min-height: 180px;
@@ -1158,9 +1189,11 @@ button.icon-sort-amount-desc {
 }
 .product-page__items {
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
+  justify-content: flex-start;
   margin-bottom: 30px;
   flex-wrap: wrap;
+  margin-left: -30px;
 }
 
 .pagination__list {
@@ -1229,6 +1262,7 @@ button.icon-sort-amount-desc {
 .product__item {
   &.list {
     max-width: 100%;
+    flex-basis: 100%;
     .product__item-img {
       width: 240px;
       float: left;
@@ -1282,7 +1316,7 @@ button.icon-sort-amount-desc {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 16px 0;
+  padding: 16px;
 }
 .product-one__images {
   max-width: 829px;
@@ -1413,6 +1447,11 @@ button.icon-sort-amount-desc {
     & + .tab {
       border-left: 1px solid #d7d7d7;
     }
+  }
+}
+.product-one__tabs {
+  .tab.active {
+    border-bottom: 1px solid $green;
   }
 }
 .product-one__more-icons {
@@ -1830,6 +1869,7 @@ button.icon-sort-amount-desc {
     background-color: transparent;
   }
 }
+
 .page__box {
   background-color: #fff;
   border: 1px solid #dedede;
@@ -1871,6 +1911,10 @@ button.icon-sort-amount-desc {
     padding: 10px;
     color: #707070;
   }
+  .jq-selectbox {
+    max-width: 540px;
+    width: 100%;
+  }
 }
 .settings__btn {
   color: #fff;
@@ -1881,6 +1925,7 @@ button.icon-sort-amount-desc {
   height: 46px;
   border: none;
 }
+
 // end settings page
 
 // start profile page
@@ -1998,20 +2043,20 @@ button.icon-sort-amount-desc {
   color: #000;
 }
 .profile-settings {
-  .product-one__tabs.settings__tabs{
-    .tabs span{
+  .product-one__tabs.settings__tabs {
+    .tabs span {
       font-family: "Roboto-Regular", sans-serif !important;
       font-weight: 500;
       color: #707070;
       position: relative;
-      &.active::before{
+      &.active::before {
         color: $green;
       }
-      &::before{
+      &::before {
         position: absolute;
         left: 27px;
         font-size: 14px;
-        font-family: 'icomoon';
+        font-family: "icomoon";
         color: #d0d0d0;
       }
     }
@@ -2056,12 +2101,253 @@ button.icon-sort-amount-desc {
   border-radius: 3px;
   margin-bottom: 23px;
   span {
-  background-image: url(../images/profile/pro-bar.png);
-  background-repeat: repeat;
+    background-image: url(../images/profile/pro-bar.png);
+    background-repeat: repeat;
     height: 15px;
     display: block;
     border-radius: 3px;
   }
 }
 // end profile page
+
+// start upload page
+.upload__inner {
+  background-color: #fff;
+  border: 1px solid #d7d7d7;
+  margin-bottom: 110px;
+  button {
+    color: #fff;
+    border: none;
+    background-color: $green;
+    padding: 15px 36px;
+    margin-left: 175px;
+    cursor: pointer;
+  }
+}
+.upload__inner-title {
+  font-size: 24px;
+  padding: 16px 35px 18px;
+  @include f500;
+  color: $bg;
+  border: 1px solid #d7d7d7;
+  margin-bottom: 40px;
+}
+.upload__inner-content {
+  margin-bottom: 30px;
+  padding-left: 45px;
+  padding-right: 50px;
+}
+.upload__line {
+  margin-bottom: 25px;
+  display: flex;
+
+  label {
+    padding-right: 15px;
+    min-width: 175px;
+    color: #444;
+    padding-top: 5px;
+    span {
+      color: $green;
+    }
+    &::placeholder {
+      color: #707070;
+    }
+  }
+  select,
+  input,
+  textarea {
+    display: block;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #d7d7d7;
+    background-color: #f9f9f9;
+    padding: 0px 18px;
+  }
+  textarea {
+    resize: none;
+    height: 150px;
+    padding: 8px 18px;
+  }
+}
+input[type="file"] {
+  outline: none;
+}
+.jq-selectbox {
+  width: 100%;
+}
+.jq-selectbox__select {
+  height: 40px;
+  padding: 0 18px;
+  border: 1px solid #d7d7d7;
+  border-bottom-color: #d7d7d7;
+  border-radius: 0px;
+  background: #f9f9f9;
+  box-shadow: none;
+  font-family: "Roboto-Regular", sans-serif;
+  color: #707070;
+  text-shadow: none;
+  line-height: 40px;
+  font-size: 14px;
+}
+.jq-selectbox__trigger-arrow {
+  border: none;
+  font-size: 15px;
+  right: 20px;
+  width: 0;
+  top: 0;
+  line-height: 40px;
+
+  &::before {
+    font-family: "icomoon";
+    color: #444;
+    content: "\f0d7";
+  }
+}
+.jq-selectbox__trigger {
+  border-left: none;
+}
+.jq-file {
+  width: 100%;
+  border-radius: 0px;
+  box-shadow: none;
+  border: 1px solid #d7d7d7;
+  border-bottom-color: #d7d7d7;
+  background: #f9f9f9;
+  height: 40px;
+}
+.jq-file__name {
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  padding: 0px 18px;
+  border: none;
+  border-bottom-color: transparent;
+  border-radius: 0px;
+  background: transparent;
+  box-shadow: none;
+  font-size: 12px;
+  color: #707070;
+  line-height: 40px;
+  font-family: "Roboto-Regular", sans-serif;
+  margin-left: 100px;
+  outline: none;
+}
+.jq-file__browse {
+  position: absolute;
+  top: 5px;
+  right: auto;
+  left: 9px;
+  padding: 0px 12px;
+  border: 1px solid #d7d7d7;
+  border-radius: 0;
+  background: #fff;
+  box-shadow: none;
+  text-shadow: none;
+  font-size: 12px;
+  font-family: "Roboto-Regular", sans-serif;
+  line-height: 26px;
+  color: #444;
+}
+// end upload page
+
+// start withdrawals page
+.withdrawals__inner {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 110px;
+}
+.withdrawals__col {
+  max-width: 570px;
+  background-color: #fff;
+  width: 100%;
+  border: 1px solid #dedede;
+  height: 100%;
+}
+
+.withdrawals__title {
+  font-size: 24px;
+  @include f500;
+  padding: 18px 32px 24px;
+  border-bottom: 1px solid #dedede;
+  margin-bottom: 30px;
+  color: $bg;
+}
+.withdrawals__content {
+  padding-left: 35px;
+  padding-right: 40px;
+  button {
+    margin-bottom: 50px;
+    color: #fff;
+    border: none;
+    background-color: $green;
+    padding: 15px 36px;
+
+    cursor: pointer;
+  }
+}
+.withdrawals__form-line {
+  margin-bottom: 25px;
+  label {
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    @include f500;
+    color: $bg;
+    margin-bottom: 15px;
+
+    span {
+      color: $green;
+    }
+  }
+  input {
+    width: 100%;
+    height: 40px;
+    padding: 0 18px;
+    border: 1px solid #d7d7d7;
+    background: #f9f9f9;
+    box-shadow: none;
+    font-family: "Roboto-Regular", sans-serif;
+    color: #000;
+    line-height: 40px;
+    font-size: 14px;
+    &::placeholder {
+      color: #707070;
+    }
+  }
+}
+.withdrawals__content-items {
+  padding-bottom: 35px;
+}
+.withdrawals__content-item {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  font-size: 13px;
+  color: #444;
+  &:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+}
+.withdrawals__content-date {
+  width: 154px;
+  padding-left: 20px;
+  @include f500;
+}
+.withdrawals__content-email {
+  width: 180px;
+  @include f500;
+}
+.withdrawals__content-price {
+  width: 70px;
+  @include f700;
+}
+.withdrawals__content-status {
+  width: 88px;
+  @include f700;
+  &.withdrawals__content-paid {
+    color: $green;
+  }
+}
+
+// end withdrawals page
 @import "_media";
